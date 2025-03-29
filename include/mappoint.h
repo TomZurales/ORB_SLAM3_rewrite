@@ -1,6 +1,9 @@
 #pragma once
 
+#include "hidden/descriptor.h"
+
 class MapPoint
 {
-    private:
+private:
+    Descriptor descriptor;
 };
