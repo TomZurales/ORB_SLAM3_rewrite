@@ -6,9 +6,9 @@ namespace SlamSensor
 {
     class Base
     {
-    private:
-        const bool HAS_IMU;
-        const bool HAS_STEREO_CAMERA;
+    protected:
+        bool HAS_IMU;
+        bool HAS_STEREO_CAMERA;
 
     public:
         bool hasIMU() { return HAS_IMU; }
