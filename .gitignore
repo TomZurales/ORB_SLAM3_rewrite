@@ -1,2 +1,5 @@
 build/
 Thirdparty/
+.vscode/
+thirdparty_root/
+.env

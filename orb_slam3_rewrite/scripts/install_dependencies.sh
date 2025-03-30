@@ -2,6 +2,7 @@
 
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+ROOT_DIR=$SCRIPT_DIR/../..
 
 sudo -v
 
@@ -23,7 +24,8 @@ else
     sed -i '/^project/a find_package(glog REQUIRED)' CMakeLists.txt
     cmake -B build -DBUILD_SOPHUS_TESTS=OFF
     cmake --build build --parallel 8
-    sudo cmake --install build
+    cmake --install build --prefix=$ROOT_DIR/thirdparty_root
+    echo "Sophus_DIR=$ROOT_DIR/thirdparty_root/share/sophus/cmake/" >> $ROOT_DIR/.env
 fi
 
 sudo -k

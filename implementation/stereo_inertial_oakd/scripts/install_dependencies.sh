@@ -2,12 +2,7 @@
 
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-
-sudo -v
-
-# Install apt packages
-# sudo apt update && sudo apt upgrade -y
-# sudo apt install -y git gcc cmake build-essential libeigen3-dev libopencv-dev libceres-dev libgoogle-glog-dev libunwind-dev
+ROOT_DIR=$SCRIPT_DIR/../../..
 
 mkdir -p $SCRIPT_DIR/../Thirdparty
 
@@ -23,7 +18,8 @@ else
     git submodule update --init --recursive
     cmake -S. -Bbuild -D'BUILD_SHARED_LIBS=ON'
     cmake --build build --parallel 8
-    sudo cmake --install
+    cmake --install build --prefix=$ROOT_DIR/thirdparty_root
+    echo "depthai_DIR=$ROOT_DIR/thirdparty_root/lib/cmake/depthai/" >> $ROOT_DIR/.env
 fi
 
 sudo -k
