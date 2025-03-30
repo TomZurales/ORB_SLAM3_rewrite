@@ -21,8 +21,8 @@ else
     latestTag=$(git describe --tags "$(git rev-list --tags --max-count=1)")
     git checkout $latestTag
     sed -i '/^project/a find_package(glog REQUIRED)' CMakeLists.txt
-    # Add find_package(glog REQUIRED) to cmakelists.txt
     cmake -B build -DBUILD_SOPHUS_TESTS=OFF
+    cmake --build build --parallel 8
     sudo cmake --install build
 fi
 
