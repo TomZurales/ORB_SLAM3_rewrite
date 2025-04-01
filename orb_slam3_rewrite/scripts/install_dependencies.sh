@@ -8,7 +8,17 @@ sudo -v
 
 # Install apt packages
 sudo apt update && sudo apt upgrade -y
-sudo apt install -y git gcc cmake build-essential libeigen3-dev libopencv-dev libceres-dev libgoogle-glog-dev libunwind-dev
+sudo apt install -y \
+  git \
+  gcc \
+  cmake \
+  build-essential \
+  libeigen3-dev \
+  libopencv-dev \
+  libceres-dev \
+  libgoogle-glog-dev \
+  libunwind-dev \
+  doxygen
 
 mkdir -p $SCRIPT_DIR/../Thirdparty
 
