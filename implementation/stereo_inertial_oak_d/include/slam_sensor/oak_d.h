@@ -2,8 +2,9 @@
 
 #include "slam_sensor/base.h"
 #include "depthai/depthai.hpp"
+#include "utility.h"
 
-class OakD : public SlamSensor::Base
+class OakD : public Base
 {
 private:
   dai::Pipeline pipeline;
@@ -14,5 +15,5 @@ private:
 
 public:
   OakD();
-  SlamData getFrame();
+  SlamData getFrame() override;
 };

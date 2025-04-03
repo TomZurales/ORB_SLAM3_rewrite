@@ -17,4 +17,4 @@ endif()
 
 add_subdirectory(orb_slam3_rewrite)
 
-add_subdirectory(implementation/stereo_inertial_oak_d)
+# add_subdirectory(implementation/stereo_inertial_oak_d)
