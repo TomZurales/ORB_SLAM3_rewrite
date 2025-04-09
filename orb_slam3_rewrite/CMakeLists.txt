@@ -4,6 +4,7 @@ set(SOURCES
     src/base.cc
     src/utility.cc
     src/frame.cc
+    src/slam_sensor.cc
     src/camera.cc
 )
 

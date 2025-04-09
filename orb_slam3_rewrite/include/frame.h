@@ -1,6 +1,6 @@
 #pragma once
 
-#include "slam_sensor/camera.h"
+#include "camera.h"
 #include "keypoint.h"
 
 #include <opencv2/core.hpp>
@@ -10,9 +10,15 @@
 class Frame
 {
 private:
-  std::vector<Keypoint> keypoints;
+  std::vector<cv::KeyPoint> keypoints;
+  cv::Mat descriptors;
   Camera camera;
+  cv::Mat image;
 
 public:
   Frame(cv::Mat image, Camera camera);
+
+  std::vector<cv::KeyPoint> getKeypoints() { return keypoints; }
+  cv::Mat getDescriptors() { return descriptors; }
+  cv::Mat getImage() { return image; }
 };

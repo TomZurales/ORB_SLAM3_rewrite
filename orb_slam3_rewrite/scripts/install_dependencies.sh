@@ -18,7 +18,8 @@ sudo apt install -y \
   libceres-dev \
   libgoogle-glog-dev \
   libunwind-dev \
-  doxygen
+  doxygen \
+  gdb
 
 mkdir -p $SCRIPT_DIR/../Thirdparty
 
