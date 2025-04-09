@@ -13,6 +13,8 @@ class Camera
   cv::Mat intrinsics;
   cv::Mat distortion_coeffeicents;
 
+  cv::Mat map1, map2;
+
 public:
   std::vector<cv::KeyPoint> undistortKeypoints(std::vector<cv::KeyPoint> keypoints);
 
@@ -22,4 +24,10 @@ public:
 
   void setDistortion(cv::Mat distortion_coeffeicents) { this->distortion_coeffeicents = distortion_coeffeicents; }
   cv::Mat getDistortion() { return distortion_coeffeicents; }
+
+  void setUndistortRectifyMaps(cv::Mat map1, cv::Mat map2)
+  {
+    this->map1 = map1;
+    this->map2 = map2;
+  }
 };

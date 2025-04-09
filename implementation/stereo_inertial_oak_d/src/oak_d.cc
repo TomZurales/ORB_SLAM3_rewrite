@@ -42,11 +42,11 @@ OakD::OakD()
   cv::Size imageSize(leftFrame->getWidth(), leftFrame->getHeight());
   cv::initUndistortRectifyMap(
       vectorToMat(leftIntrinsics), cv::Mat(), vectorToMat(leftRectification),
-      vectorToMat(leftIntrinsics), imageSize, CV_32FC1, leftMap1, leftMap2);
+      vectorToMat(leftIntrinsics), imageSize, CV_64FC1, leftMap1, leftMap2);
 
   cv::initUndistortRectifyMap(
       vectorToMat(leftIntrinsics), cv::Mat(), cv::Mat(rightRectification),
-      vectorToMat(leftIntrinsics), imageSize, CV_32FC1, rightMap1, rightMap2);
+      vectorToMat(leftIntrinsics), imageSize, CV_64FC1, rightMap1, rightMap2);
 
   cv::Mat rectificationMask = cv::Mat::zeros(imageSize, CV_8UC1);
   for (int y = 0; y < imageSize.height; ++y)

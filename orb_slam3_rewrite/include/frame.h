@@ -12,11 +12,11 @@ class Frame
 private:
   std::vector<cv::KeyPoint> keypoints;
   cv::Mat descriptors;
-  Camera camera;
+  std::shared_ptr<Camera> camera;
   cv::Mat image;
 
 public:
-  Frame(cv::Mat image, Camera camera);
+  Frame(cv::Mat image, std::shared_ptr<Camera> camera);
 
   std::vector<cv::KeyPoint> getKeypoints() { return keypoints; }
   cv::Mat getDescriptors() { return descriptors; }

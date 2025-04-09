@@ -3,19 +3,13 @@
 
 std::vector<cv::KeyPoint> Camera::undistortKeypoints(std::vector<cv::KeyPoint> keypoints)
 {
-  std::vector<cv::Point2f> points, undistortedPoints;
-
-  // Convert KeyPoints to Point2f
-  cv::KeyPoint::convert(keypoints, points);
-
-  // Undistort points (results in normalized coordinates)
-  cv::undistortPoints(points, undistortedPoints, intrinsics, distortion_coeffeicents, cv::noArray(), intrinsics);
-
-  // Update KeyPoints with undistorted pixel coordinates
-  for (size_t i = 0; i < keypoints.size(); ++i)
+  std::vector<cv::KeyPoint> undistortedKPs;
+  for (const auto keypoint : keypoints)
   {
-    keypoints[i].pt = undistortedPoints[i];
+    cv::KeyPoint copy(keypoint);
+    copy.pt = cv::Point2f(map1.at<float>(keypoint.pt), map2.at<float>(keypoint.pt));
+    undistortedKPs.push_back(copy);
   }
 
-  return keypoints;
+  return undistortedKPs;
 }
